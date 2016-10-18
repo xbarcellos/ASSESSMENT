@@ -1,0 +1,43 @@
+<html>
+<head>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+<script>
+$(function(){
+  $('.operar').click(function() {
+    var campo1 = $('#campo1').val();
+    var campo2 = $('#campo2').val();
+    var operacao = $(this).attr('name');
+    var resultado = 0;
+    
+    if(operacao === 'somar') {
+      resultado = campo1 + campo2;
+    }
+    else if(operacao === 'subtrair'){
+      resultado = campo1 - campo2;
+    }
+    else if(operacao === 'multiplicar'){
+      resultado = campo1 * campo2;
+    }
+    else if(operacao === 'dividir'){
+      resultado = campo / campo2;
+    }
+    $('resultado').val(resultado);
+   });
+   
+   $('reset').click(function(){
+    $('#campo1, #campo2, #resultado').val('');
+   });
+   });
+</script>
+</head>
+<body>
+<input id='campo1' type='number'>
+<input id='campo2' type='number'>
+<button name='somar' class='operar'>somar</button>
+<button name='subtrair' class='operar'>subtrair</button>
+<button name='multiplicar' class='operar'>multiplicar</button>
+<button name='dividir' class='operar'>dividir</button>
+Resultado: <input id='resultado' type='number' placeholder='resultado'>
+<button id='reset'>Resetar</button>
+</body>
+</html>
